@@ -1,0 +1,17 @@
+vich_uploader:
+    db_driver: orm
+    twig: true
+#    gaufrette: false
+#    storage: vich_uploader.storage.file_system
+
+
+
+    mappings:
+
+
+
+        manchete_images:
+            uri_prefix:  '%app.path.manchete_images%'     # '%app.path.manchete_images%' #
+            upload_destination:  '%kernel.project_dir%/public/%app.path.manchete_images%'           #'%kernel.root_dir%\..\public\web\uploads\images\manchetes'
+            delete_on_remove: true # whether to delete file upon removal of entity
+            inject_on_load: true

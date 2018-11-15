@@ -1,0 +1,72 @@
+#easy_admin:
+#    entities:
+#        # List the entity class name you want to manage
+
+#        - App\Entity\Category
+#        - App\Entity\User
+
+easy_admin:
+  entities:
+    TemaDaManchete:
+      class: App\Entity\TemaDaManchete
+
+    Manchete:
+      class:  App\Entity\Manchete
+#      form:
+#        fields:
+#          - titulo
+#          - descricao
+#          - link
+#          - temaManchete
+#          - {  property: 'arquivoDaImagem', type: 'file', base_path: \uploads\images\manchetes ,
+#               help: 'selecione uma imagem para a manchete', type_options: { required: false }
+#               label: 'Imagem da manchete' }
+      list:
+        fields:
+        - titulo
+        - descricao
+        - link
+        - temaManchete
+        - {  property: 'caminhoDaImagem', type: 'vich_image' , base_path: \uploads\images\manchetes,
+             template: 'vich_uploader_image.html.twig' }
+      show:
+        fields:
+        - titulo
+        - descricao
+        - link
+        - temaManchete
+        - {  property: 'caminhoDaImagem', type: 'vich_image' ,base_path: \uploads\images\manchetes }
+#      new:
+#        fields:
+#        - titulo
+#        - descricao
+#        - link
+#        - temaManchete
+#        # No image at entity creation so it is required.
+#        # Image deletion at form level has to be disabled.
+#        - {
+#          property: 'caminhoDaImagem',
+#          type: 'file',
+#          type_options: { required: false, data_class: null},
+#          base_path: \uploads\images\manchetes,
+#          help: 'selecione uma imagem para a manchete',
+#          label: 'Imagem da manchete'
+#        }
+
+      edit:
+        fields:
+        - titulo
+        - descricao
+        - link
+        - temaManchete
+         An image has already been uploaded, image is not required.
+         Image deletion at form level has to be disabled.
+        - {
+            property: 'caminhoDaImagem',
+            type: 'file',
+            type_options: { required: false, data_class: null},
+            base_path: \uploads\images\manchetes,
+            help: 'selecione uma imagem para a manchete',
+            label: 'Imagem da manchete'
+          }
+
