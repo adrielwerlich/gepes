@@ -46,6 +46,7 @@ class Manchete
 
 
     /**
+     *
      * @Vich\UploadableField(mapping="manchete_images", fileNameProperty="caminhoDaImagem")
      * @var File
      */
@@ -60,6 +61,33 @@ class Manchete
     private $dataDaPostagem;
 
     /**
+     * @ORM\Column(type="datetime", nullable=true)
+     * @var \DateTime
+     */
+//    private $dataDeAtualizacao;
+
+    /**
+     * @return \DateTime
+     */
+//    public function getDataDeAtualizacao(): \DateTime
+//    {
+//        if ($this->dataDeAtualizacao == null){
+//            $this->dataDeAtualizacao = $this->getDatetimeNow();
+//        }
+//
+//        return $this->dataDeAtualizacao;
+//    }
+
+    /**
+     * @param \DateTime $dataDeAtualizacao
+     */
+//    public function setDataDeAtualizacao(\DateTime $dataDeAtualizacao): void
+//    {
+//        $this->dataDeAtualizacao = $dataDeAtualizacao;
+//    }
+
+
+    /**
      * @ORM\ManyToOne(targetEntity="App\Entity\TemaDaManchete", inversedBy="manchete")
      */
     private $temaManchete;
@@ -70,9 +98,10 @@ class Manchete
     {
         $this->arquivoDaImagem = $image;
 
-        if ($image instanceof UploadedFile) {
-            $this->setUpdatedAt(new \DateTime());
-        }
+//        if ($image instanceof UploadedFile) {
+//            $this->setDataDeAtualizacao(new \DateTime());
+//        }
+
 
         // VERY IMPORTANT:
         // It is required that at least one field changes if you are using Doctrine,
@@ -235,21 +264,25 @@ class Manchete
      */
     public function getDataDaPostagem(): \DateTime
     {
-        if (empty($this->getDataDaPostagem())) {
+
+        if ($this->dataDaPostagem == null) {
             $now = $this->getDatetimeNow();
-            $this->setDataDaPostagem($now);
+            $this->dataDaPostagem = $now;
         }
         return $this->dataDaPostagem;
     }
 
+    function getFormattedDate(){
+        return $this->getDataDaPostagem()->format('Y\-m\-d\ h:i:s');
+    }
 
     function getDatetimeNow() {
-        $tz_object = new DateTimeZone('Brazil/East');
+        $tz_object = new \DateTimeZone('Brazil/East');
         //date_default_timezone_set('Brazil/East');
 
-        $datetime = new DateTime();
+        $datetime = new \DateTime();
         $datetime->setTimezone($tz_object);
-        return $datetime->format('Y\-m\-d\ h:i:s');
+        return $datetime;
     }
 
     /**

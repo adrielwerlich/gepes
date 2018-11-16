@@ -9,6 +9,8 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+use Vich\UploaderBundle\Templating\Helper\UploaderHelper as Helper;
+use Vich\UploaderBundle\Templating\Helper\UploaderHelper;
 
 class GepesControl extends AbstractController {
 
@@ -22,12 +24,23 @@ class GepesControl extends AbstractController {
         $manchetes = $repository->findAll();
 
 
+//        $path = null;
+//        $helper = new UploaderHelper($repository);
+//        foreach ($manchetes as $manchete) {
+
+//            $path = $helper->asset($manchete, 'imagem');
+
+//        }
+
 
         $repository = $em->getRepository(TemaDaManchete::class);
         $temas = $repository->findAll();
 
 
-//        dump($manchetes, $temas, $this);
+
+
+
+        dump($manchetes, $this);
 
 //        $file = $manchetes->arquivoDaImagem()->getDocFile();
 

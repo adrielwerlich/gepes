@@ -5,7 +5,7 @@
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: 'pt'
-    app.path.manchete_images: \uploads\images\manchetes
+    app.path.manchete_images: /uploads/images/manchetes
 
 services:
     # default configuration for services in *this* file

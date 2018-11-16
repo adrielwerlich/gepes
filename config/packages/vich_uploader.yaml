@@ -1,17 +1,34 @@
+#knp_gaufrette:
+#    stream_wrapper: ~
+#
+#    adapters:
+#        manchete_adapter:
+#            local:
+#                directory: '%kernel.project_dir%/public/uploads/images/manchetes'
+#
+#    filesystems:
+#        manchete_image_fs:
+#            adapter: manchete_adapter
+#
+#    mappings:
+#        product_image:
+#            uri_prefix: /images/products
+#            upload_destination: product_image_fs
+
+
+
 vich_uploader:
     db_driver: orm
     twig: true
+#    storage: gaufrette
 #    gaufrette: false
 #    storage: vich_uploader.storage.file_system
 
 
 
     mappings:
-
-
-
         manchete_images:
-            uri_prefix:  '%app.path.manchete_images%'     # '%app.path.manchete_images%' #
-            upload_destination:  '%kernel.project_dir%/public/%app.path.manchete_images%'           #'%kernel.root_dir%\..\public\web\uploads\images\manchetes'
+            uri_prefix:  '/uploads/images/manchetes' #'%app.path.manchete_images%'     # '%app.path.manchete_images%' #
+            upload_destination:  '%kernel.project_dir%/public/uploads/images/manchetes'                  #%app.path.manchete_images%           #'%kernel.root_dir%\..\public\web\uploads\images\manchetes'
             delete_on_remove: true # whether to delete file upon removal of entity
-            inject_on_load: true
+#            inject_on_load: true

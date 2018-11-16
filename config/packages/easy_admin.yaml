@@ -59,12 +59,11 @@ easy_admin:
         - descricao
         - link
         - temaManchete
-         An image has already been uploaded, image is not required.
-         Image deletion at form level has to be disabled.
+
         - {
             property: 'caminhoDaImagem',
             type: 'file',
-            type_options: { required: false, data_class: null},
+            type_options: { required: false},
             base_path: \uploads\images\manchetes,
             help: 'selecione uma imagem para a manchete',
             label: 'Imagem da manchete'
