@@ -27,15 +27,14 @@ easy_admin:
         - descricao
         - link
         - temaManchete
-        - {  property: 'caminhoDaImagem', type: 'vich_image' , base_path: \uploads\images\manchetes,
-             template: 'vich_uploader_image.html.twig' }
+        - {  property: 'caminhoDaImagem', type: 'vich_image', template: 'vich_uploader_image.html.twig' }
       show:
         fields:
         - titulo
         - descricao
-        - link
+        - linkcaminhoDaImagem
         - temaManchete
-        - {  property: 'caminhoDaImagem', type: 'vich_image' ,base_path: \uploads\images\manchetes }
+        - {  property: 'caminhoDaImagem', type: 'vich_image' ,base_path: '\uploads\images\manchetes' }
 #      new:
 #        fields:
 #        - titulo
@@ -53,7 +52,7 @@ easy_admin:
 #          label: 'Imagem da manchete'
 #        }
 
-      edit:
+      form:
         fields:
         - titulo
         - descricao
@@ -61,10 +60,9 @@ easy_admin:
         - temaManchete
 
         - {
-            property: 'caminhoDaImagem',
-            type: 'file',
+            property: 'arquivoDaImagem',
+            type: 'vich_image',
             type_options: { required: false},
-            base_path: \uploads\images\manchetes,
             help: 'selecione uma imagem para a manchete',
             label: 'Imagem da manchete'
           }
